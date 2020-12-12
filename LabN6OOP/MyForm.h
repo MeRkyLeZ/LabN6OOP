@@ -1,7 +1,6 @@
 #pragma once
 #include <cmath>
 #include "Repository.h"
-#include "CCircle.h"
 
 namespace LabN6OOP {
 
@@ -128,10 +127,24 @@ namespace LabN6OOP {
 		Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Заливка
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
-				if (repos.getObject(i).getSelected() == false)	// Рисуем элемент
-					e->Graphics->DrawEllipse(pen, repos.getObject(i).getX() - repos.getObject(i).getR(), repos.getObject(i).getY() - repos.getObject(i).getR(), repos.getObject(i).getR() * 2, repos.getObject(i).getR() * 2);
-				else	// Заливаем элемент
-					e->Graphics->FillEllipse(brush, repos.getObject(i).getX() - repos.getObject(i).getR(), repos.getObject(i).getY() - repos.getObject(i).getR(), repos.getObject(i).getR() * 2, repos.getObject(i).getR() * 2);
+				if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
+					if (repos.getObject(i).getSelected() == false) {	// Рисуем элемент
+						e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+					}
+					else {	// Заливаем элемент
+
+						e->Graphics->FillEllipse(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+					}
+				}
+				else if (CSquare* c = dynamic_cast<CSquare*>(&repos.getObject(i))) {
+
+				}
+				else if (CTriangle* c = dynamic_cast<CTriangle*>(&repos.getObject(i))) {
+
+				}
+				else if (CLine* c = dynamic_cast<CLine*>(&repos.getObject(i))) {
+
+				}
 			}
 		}
 		delete pen;

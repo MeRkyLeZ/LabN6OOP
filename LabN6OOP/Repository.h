@@ -1,6 +1,6 @@
 #pragma once
-#include "CCircle.h"
-#define nameObject CCircle	// Имя объекта
+#include "Figure.h"
+#define nameObject Figure	// Имя объекта
 
 class Repository {	// Хранилище
 protected:
