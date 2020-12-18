@@ -39,6 +39,8 @@ namespace LabN6OOP {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	protected:
 
 	protected:
 
@@ -57,24 +59,41 @@ namespace LabN6OOP {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->Location = System::Drawing::Point(12, 12);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(1240, 548);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Click);
+			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1264, 681);
+			this->Controls->Add(this->pictureBox1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Click);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: int GetDistance(int x0, int x, int y0, int y) {	// Вычисление дистанции между точками
 		return (pow((x0 - x), 2) + pow((y0 - y), 2));
+	}
+	private: bool CheckIn(int x, int y, int R) {
+		return (x + R<(pictureBox1->Location.X + pictureBox1->Width) && x - R>pictureBox1->Location.X && y + R<(pictureBox1->Location.Y + pictureBox1->Height) && y - R>pictureBox1->Location.Y);
 	}
 	private: System::Void MyForm_Click(System::Object^ sender, System::EventArgs^ e) {	// Обработчик нажатия на форму
 		int check = 0;
@@ -117,36 +136,37 @@ namespace LabN6OOP {
 				}
 			}
 			if (check == 0) {
-				repos.addObject(new CCircle(x, y, D / 2));
+				if (CheckIn(x, y, D / 2))
+					repos.addObject(new CCircle(x, y, D / 2));
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
 	private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {	// Отрисовка формы
 		Pen^ pen = gcnew Pen(Color::Black);	// Кисть
-		Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Заливка
-		for (int i = 0; i < repos.getSize(); ++i) {
-			if (!repos.isNull(i)) {
-				if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
-					if (repos.getObject(i).getSelected() == false) {	// Рисуем элемент
-						e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+			Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Заливка
+			for (int i = 0; i < repos.getSize(); ++i) {
+				if (!repos.isNull(i)) {
+					if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
+						if (repos.getObject(i).getSelected() == false) {	// Рисуем элемент
+							e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+						}
+						else {	// Заливаем элемент
+
+							e->Graphics->FillEllipse(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+						}
 					}
-					else {	// Заливаем элемент
+					else if (CSquare* c = dynamic_cast<CSquare*>(&repos.getObject(i))) {
 
-						e->Graphics->FillEllipse(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
 					}
-				}
-				else if (CSquare* c = dynamic_cast<CSquare*>(&repos.getObject(i))) {
+					else if (CTriangle* c = dynamic_cast<CTriangle*>(&repos.getObject(i))) {
 
-				}
-				else if (CTriangle* c = dynamic_cast<CTriangle*>(&repos.getObject(i))) {
+					}
+					else if (CLine* c = dynamic_cast<CLine*>(&repos.getObject(i))) {
 
-				}
-				else if (CLine* c = dynamic_cast<CLine*>(&repos.getObject(i))) {
-
+					}
 				}
 			}
-		}
 		delete pen;
 		delete brush;
 	}
