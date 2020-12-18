@@ -401,7 +401,6 @@ namespace LabN6OOP {
 				}
 			}
 			if (check == 0) {	// Если не нашли объект
-
 				if (fig != 0) {
 					if (CCircle* c = dynamic_cast<CCircle*>(fig)) {
 						if (CheckIn(x, y, R)) {
@@ -432,7 +431,7 @@ namespace LabN6OOP {
 
 
 	}
-	private: System::Void кругToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void кругToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Запоминаем объект для создания
 		fig = new CCircle();
 	}
 	private: System::Void квадратToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -441,18 +440,18 @@ namespace LabN6OOP {
 	private: System::Void треугольникToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		fig = new CTriangle();
 	}
-	private: System::Void увеличитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void увеличитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Увеличение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
-					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY(), repos.getObject(i).getR() + 10))
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY(), repos.getObject(i).getR() + 10))	// Проверка выхода
 						repos.getObject(i).setR(repos.getObject(i).getR() + 10);
 				}
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void уменьшитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void уменьшитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Уменьшение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
@@ -463,7 +462,7 @@ namespace LabN6OOP {
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void удалитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void удалитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Удаление объектов
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i))
 				if (repos.getObject(i).getSelected() == true)
@@ -471,51 +470,51 @@ namespace LabN6OOP {
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void вверхToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void вверхToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смещение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
-					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() - 10, repos.getObject(i).getR()))
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() - 10, repos.getObject(i).getR()))	// Проверка выхода
 						repos.getObject(i).setY(repos.getObject(i).getY() - 10);
 				}
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void внизToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void внизToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смещение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
-					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() + 10, repos.getObject(i).getR()))
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() + 10, repos.getObject(i).getR()))	// Проверка выхода
 						repos.getObject(i).setY(repos.getObject(i).getY() + 10);
 				}
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void влевоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void влевоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смещение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
-					if (CheckIn(repos.getObject(i).getX() - 10, repos.getObject(i).getY(), repos.getObject(i).getR()))
+					if (CheckIn(repos.getObject(i).getX() - 10, repos.getObject(i).getY(), repos.getObject(i).getR()))	// Проверка выхода
 						repos.getObject(i).setX(repos.getObject(i).getX() - 10);
 				}
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void вправоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void вправоToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смещение объекта
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
 				if (repos.getObject(i).getSelected()) {
-					if (CheckIn(repos.getObject(i).getX() + 10, repos.getObject(i).getY(), repos.getObject(i).getR()))
+					if (CheckIn(repos.getObject(i).getX() + 10, repos.getObject(i).getY(), repos.getObject(i).getR()))	// Проверка выхода
 						repos.getObject(i).setX(repos.getObject(i).getX() + 10);
 				}
 			}
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void blackToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void blackToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смена цвета объекта
 		col c(0, 0, 0);
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i))
@@ -524,7 +523,7 @@ namespace LabN6OOP {
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void redToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void redToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смена цвета объекта
 		col c(255, 0, 0);
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i))
@@ -533,7 +532,7 @@ namespace LabN6OOP {
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void greenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void greenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смена цвета объекта
 		col c(0, 255, 0);
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i))
@@ -542,7 +541,7 @@ namespace LabN6OOP {
 		}
 		MyForm::Refresh();	// Обновление формы
 	}
-	private: System::Void blueToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void blueToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Смена цвета объекта
 		col c(0, 0, 255);
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i))
