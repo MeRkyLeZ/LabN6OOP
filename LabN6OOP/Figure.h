@@ -1,6 +1,6 @@
 #pragma once
 
-struct col {
+struct col {	// Определение цвета
 	int r;
 	int g;
 	int b;
@@ -16,7 +16,7 @@ struct col {
 	}
 };
 
-class Figure {
+class Figure {	// Фигура
 protected:
 	int x, y, R;
 	bool selected;

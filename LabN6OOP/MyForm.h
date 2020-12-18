@@ -347,7 +347,7 @@ namespace LabN6OOP {
 					Point p1(c->getX(), c->getY() - c->getR());
 					Point p2(c->getX() - c->getR(), c->getY() + c->getR());
 					Point p3(c->getX() + c->getR(), c->getY() + c->getR());
-					array<Point>^ p = { p1,p2,p3 };
+					array<Point>^ p = { p1,p2,p3 };	// Треугольник
 					if (repos.getObject(i).getSelected() == false) {	// Рисуем элемент
 						e->Graphics->DrawPolygon(pen, p);
 					}
@@ -360,8 +360,8 @@ namespace LabN6OOP {
 		delete pen;
 		delete brush;
 	}
-	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
-		int check = 0;
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {	// Обработчик нажатия поля
+		int check = 0;	// Проверка нахождения объекта при нажатии
 		int x, y;
 		if ((Control::ModifierKeys == Keys::Control)) {	// Проверка нажатия Ctrl
 			x = this->PointToClient(Cursor->Position).X - pictureBox1->Location.X;
@@ -400,7 +400,7 @@ namespace LabN6OOP {
 					}
 				}
 			}
-			if (check == 0) {
+			if (check == 0) {	// Если не нашли объект
 
 				if (fig != 0) {
 					if (CCircle* c = dynamic_cast<CCircle*>(fig)) {
