@@ -49,6 +49,13 @@ namespace LabN6OOP {
 	private: System::Windows::Forms::ToolStripMenuItem^ êğóãToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ êâàäğàòToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ òğåóãîëüíèêToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ óâåëè÷èòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ óìåíüøèòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ââåğõToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âíèçToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âëåâîToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ âïğàâîToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ óäàëèòüToolStripMenuItem;
 
 	protected:
 
@@ -77,8 +84,15 @@ namespace LabN6OOP {
 			this->òğåóãîëüíèêToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->èíñòğóìåíòûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ğàçìåğToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->óâåëè÷èòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->óìåíüøèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->öâåòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïîëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ââåğõToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âíèçToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âëåâîToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->âïğàâîToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->óäàëèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -118,29 +132,29 @@ namespace LabN6OOP {
 			// êğóãToolStripMenuItem
 			// 
 			this->êğóãToolStripMenuItem->Name = L"êğóãToolStripMenuItem";
-			this->êğóãToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->êğóãToolStripMenuItem->Size = System::Drawing::Size(144, 22);
 			this->êğóãToolStripMenuItem->Text = L"Êğóã";
 			this->êğóãToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::êğóãToolStripMenuItem_Click);
 			// 
 			// êâàäğàòToolStripMenuItem
 			// 
 			this->êâàäğàòToolStripMenuItem->Name = L"êâàäğàòToolStripMenuItem";
-			this->êâàäğàòToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->êâàäğàòToolStripMenuItem->Size = System::Drawing::Size(144, 22);
 			this->êâàäğàòToolStripMenuItem->Text = L"Êâàäğàò";
 			this->êâàäğàòToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::êâàäğàòToolStripMenuItem_Click);
 			// 
 			// òğåóãîëüíèêToolStripMenuItem
 			// 
 			this->òğåóãîëüíèêToolStripMenuItem->Name = L"òğåóãîëüíèêToolStripMenuItem";
-			this->òğåóãîëüíèêToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->òğåóãîëüíèêToolStripMenuItem->Size = System::Drawing::Size(144, 22);
 			this->òğåóãîëüíèêToolStripMenuItem->Text = L"Òğåóãîëüíèê";
 			this->òğåóãîëüíèêToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::òğåóãîëüíèêToolStripMenuItem_Click);
 			// 
 			// èíñòğóìåíòûToolStripMenuItem
 			// 
-			this->èíñòğóìåíòûToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->èíñòğóìåíòûToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->ğàçìåğToolStripMenuItem,
-					this->öâåòToolStripMenuItem, this->ïîëîæåíèåToolStripMenuItem
+					this->öâåòToolStripMenuItem, this->ïîëîæåíèåToolStripMenuItem, this->óäàëèòüToolStripMenuItem
 			});
 			this->èíñòğóìåíòûToolStripMenuItem->Name = L"èíñòğóìåíòûToolStripMenuItem";
 			this->èíñòğóìåíòûToolStripMenuItem->Size = System::Drawing::Size(73, 20);
@@ -148,21 +162,87 @@ namespace LabN6OOP {
 			// 
 			// ğàçìåğToolStripMenuItem
 			// 
+			this->ğàçìåğToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->óâåëè÷èòüToolStripMenuItem,
+					this->óìåíüøèòüToolStripMenuItem
+			});
 			this->ğàçìåğToolStripMenuItem->Name = L"ğàçìåğToolStripMenuItem";
-			this->ğàçìåğToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->ğàçìåğToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ğàçìåğToolStripMenuItem->Text = L"Ğàçìåğ";
+			// 
+			// óâåëè÷èòüToolStripMenuItem
+			// 
+			this->óâåëè÷èòüToolStripMenuItem->Name = L"óâåëè÷èòüToolStripMenuItem";
+			this->óâåëè÷èòüToolStripMenuItem->ShortcutKeyDisplayString = L"";
+			this->óâåëè÷èòüToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::Up));
+			this->óâåëè÷èòüToolStripMenuItem->Size = System::Drawing::Size(203, 22);
+			this->óâåëè÷èòüToolStripMenuItem->Text = L"Óâåëè÷èòü";
+			this->óâåëè÷èòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óâåëè÷èòüToolStripMenuItem_Click);
+			// 
+			// óìåíüøèòüToolStripMenuItem
+			// 
+			this->óìåíüøèòüToolStripMenuItem->Name = L"óìåíüøèòüToolStripMenuItem";
+			this->óìåíüøèòüToolStripMenuItem->ShortcutKeyDisplayString = L"";
+			this->óìåíüøèòüToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::Down));
+			this->óìåíüøèòüToolStripMenuItem->Size = System::Drawing::Size(203, 22);
+			this->óìåíüøèòüToolStripMenuItem->Text = L"Óìåíüøèòü";
+			this->óìåíüøèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óìåíüøèòüToolStripMenuItem_Click);
 			// 
 			// öâåòToolStripMenuItem
 			// 
 			this->öâåòToolStripMenuItem->Name = L"öâåòToolStripMenuItem";
-			this->öâåòToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->öâåòToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->öâåòToolStripMenuItem->Text = L"Öâåò";
 			// 
 			// ïîëîæåíèåToolStripMenuItem
 			// 
+			this->ïîëîæåíèåToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->ââåğõToolStripMenuItem,
+					this->âíèçToolStripMenuItem, this->âëåâîToolStripMenuItem, this->âïğàâîToolStripMenuItem
+			});
 			this->ïîëîæåíèåToolStripMenuItem->Name = L"ïîëîæåíèåToolStripMenuItem";
-			this->ïîëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->ïîëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->ïîëîæåíèåToolStripMenuItem->Text = L"Ïîëîæåíèå";
+			// 
+			// ââåğõToolStripMenuItem
+			// 
+			this->ââåğõToolStripMenuItem->Name = L"ââåğõToolStripMenuItem";
+			this->ââåğõToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::NumPad8));
+			this->ââåğõToolStripMenuItem->Size = System::Drawing::Size(201, 22);
+			this->ââåğõToolStripMenuItem->Text = L"Ââåğõ";
+			this->ââåğõToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ââåğõToolStripMenuItem_Click);
+			// 
+			// âíèçToolStripMenuItem
+			// 
+			this->âíèçToolStripMenuItem->Name = L"âíèçToolStripMenuItem";
+			this->âíèçToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::NumPad2));
+			this->âíèçToolStripMenuItem->Size = System::Drawing::Size(201, 22);
+			this->âíèçToolStripMenuItem->Text = L"Âíèç";
+			this->âíèçToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âíèçToolStripMenuItem_Click);
+			// 
+			// âëåâîToolStripMenuItem
+			// 
+			this->âëåâîToolStripMenuItem->Name = L"âëåâîToolStripMenuItem";
+			this->âëåâîToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::NumPad4));
+			this->âëåâîToolStripMenuItem->Size = System::Drawing::Size(201, 22);
+			this->âëåâîToolStripMenuItem->Text = L"Âëåâî";
+			this->âëåâîToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âëåâîToolStripMenuItem_Click);
+			// 
+			// âïğàâîToolStripMenuItem
+			// 
+			this->âïğàâîToolStripMenuItem->Name = L"âïğàâîToolStripMenuItem";
+			this->âïğàâîToolStripMenuItem->ShortcutKeys = static_cast<System::Windows::Forms::Keys>((System::Windows::Forms::Keys::Control | System::Windows::Forms::Keys::NumPad6));
+			this->âïğàâîToolStripMenuItem->Size = System::Drawing::Size(201, 22);
+			this->âïğàâîToolStripMenuItem->Text = L"Âïğàâî";
+			this->âïğàâîToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âïğàâîToolStripMenuItem_Click);
+			// 
+			// óäàëèòüToolStripMenuItem
+			// 
+			this->óäàëèòüToolStripMenuItem->Name = L"óäàëèòüToolStripMenuItem";
+			this->óäàëèòüToolStripMenuItem->ShortcutKeys = System::Windows::Forms::Keys::Delete;
+			this->óäàëèòüToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->óäàëèòüToolStripMenuItem->Text = L"Óäàëèòü";
+			this->óäàëèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óäàëèòüToolStripMenuItem_Click);
 			// 
 			// MyForm
 			// 
@@ -175,7 +255,6 @@ namespace LabN6OOP {
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
-			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
@@ -233,16 +312,6 @@ namespace LabN6OOP {
 		}
 		delete pen;
 		delete brush;
-	}
-	private: System::Void MyForm_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {	// Îáğàáîò÷èê íàæàòèÿ êëàâèøè
-		if (e->KeyCode == Keys::Delete) {
-			for (int i = 0; i < repos.getSize(); ++i) {
-				if (!repos.isNull(i))
-					if (repos.getObject(i).getSelected() == true)
-						repos.delObject(i);
-			}
-			MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
-		}
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 		int check = 0;
@@ -309,7 +378,7 @@ namespace LabN6OOP {
 						}
 					}
 				}
-				
+
 			}
 		}
 		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
@@ -324,6 +393,80 @@ namespace LabN6OOP {
 	}
 	private: System::Void òğåóãîëüíèêToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		fig = new CTriangle();
+	}
+	private: System::Void óâåëè÷èòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY(), repos.getObject(i).getR() + 10))
+						repos.getObject(i).setR(repos.getObject(i).getR() + 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void óìåíüøèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (repos.getObject(i).getR() - 10 > 0)
+						repos.getObject(i).setR(repos.getObject(i).getR() - 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void óäàëèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i))
+				if (repos.getObject(i).getSelected() == true)
+					repos.delObject(i);
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void ââåğõToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() - 10, repos.getObject(i).getR()))
+						repos.getObject(i).setY(repos.getObject(i).getY() - 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void âíèçToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (CheckIn(repos.getObject(i).getX(), repos.getObject(i).getY() + 10, repos.getObject(i).getR()))
+						repos.getObject(i).setY(repos.getObject(i).getY() + 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void âëåâîToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (CheckIn(repos.getObject(i).getX() - 10, repos.getObject(i).getY(), repos.getObject(i).getR()))
+						repos.getObject(i).setX(repos.getObject(i).getX() - 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void âïğàâîToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				if (repos.getObject(i).getSelected()) {
+					if (CheckIn(repos.getObject(i).getX() + 10, repos.getObject(i).getY(), repos.getObject(i).getR()))
+						repos.getObject(i).setX(repos.getObject(i).getX() + 10);
+				}
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
 	}
 	};
 }
