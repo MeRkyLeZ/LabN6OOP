@@ -407,6 +407,7 @@ namespace LabN6OOP {
 							repos.addObject(new CCircle(x, y, R));
 							delete fig;
 							fig = 0;
+
 						}
 					}
 					else if (CSquare* c = dynamic_cast<CSquare*>(fig)) {
@@ -432,12 +433,18 @@ namespace LabN6OOP {
 
 	}
 	private: System::Void кругToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Запоминаем объект для создания
+		delete fig;
+		fig = 0;
 		fig = new CCircle();
 	}
 	private: System::Void квадратToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		delete fig;
+		fig = 0;
 		fig = new CSquare();
 	}
 	private: System::Void треугольникToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		delete fig;
+		fig = 0;
 		fig = new CTriangle();
 	}
 	private: System::Void увеличитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {	// Увеличение объекта
