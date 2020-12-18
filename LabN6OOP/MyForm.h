@@ -44,7 +44,7 @@ namespace LabN6OOP {
 	private: System::Windows::Forms::ToolStripMenuItem^ ñîçäàòüÔèãóğóToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ èíñòğóìåíòûToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ğàçìåğToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ öâåòToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ ïîëîæåíèåToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ êğóãToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ êâàäğàòToolStripMenuItem;
@@ -56,6 +56,16 @@ namespace LabN6OOP {
 	private: System::Windows::Forms::ToolStripMenuItem^ âëåâîToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ âïğàâîToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ óäàëèòüToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ öâåòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ blackToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ redToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ greenToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ blueToolStripMenuItem;
+
+
+
+
+
 
 	protected:
 
@@ -87,6 +97,10 @@ namespace LabN6OOP {
 			this->óâåëè÷èòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->óìåíüøèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->öâåòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->blackToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->redToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->greenToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->blueToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïîëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ââåğõToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âíèçToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -190,9 +204,41 @@ namespace LabN6OOP {
 			// 
 			// öâåòToolStripMenuItem
 			// 
+			this->öâåòToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->blackToolStripMenuItem,
+					this->redToolStripMenuItem, this->greenToolStripMenuItem, this->blueToolStripMenuItem
+			});
 			this->öâåòToolStripMenuItem->Name = L"öâåòToolStripMenuItem";
 			this->öâåòToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->öâåòToolStripMenuItem->Text = L"Öâåò";
+			// 
+			// blackToolStripMenuItem
+			// 
+			this->blackToolStripMenuItem->Name = L"blackToolStripMenuItem";
+			this->blackToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->blackToolStripMenuItem->Text = L"Black";
+			this->blackToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::blackToolStripMenuItem_Click);
+			// 
+			// redToolStripMenuItem
+			// 
+			this->redToolStripMenuItem->Name = L"redToolStripMenuItem";
+			this->redToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->redToolStripMenuItem->Text = L"Red";
+			this->redToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::redToolStripMenuItem_Click);
+			// 
+			// greenToolStripMenuItem
+			// 
+			this->greenToolStripMenuItem->Name = L"greenToolStripMenuItem";
+			this->greenToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->greenToolStripMenuItem->Text = L"Green";
+			this->greenToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::greenToolStripMenuItem_Click);
+			// 
+			// blueToolStripMenuItem
+			// 
+			this->blueToolStripMenuItem->Name = L"blueToolStripMenuItem";
+			this->blueToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->blueToolStripMenuItem->Text = L"Blue";
+			this->blueToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::blueToolStripMenuItem_Click);
 			// 
 			// ïîëîæåíèåToolStripMenuItem
 			// 
@@ -276,7 +322,8 @@ namespace LabN6OOP {
 		Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Çàëèâêà
 		for (int i = 0; i < repos.getSize(); ++i) {
 			if (!repos.isNull(i)) {
-				//pen->Color = Color::FromArgb(repos.getObject(i).getColor());
+				col c = repos.getObject(i).getColor();
+				pen->Color = Color::FromArgb(c.r, c.g, c.b);
 				if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
 					if (repos.getObject(i).getSelected() == false) {	// Ğèñóåì ıëåìåíò
 						e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
@@ -465,6 +512,42 @@ namespace LabN6OOP {
 						repos.getObject(i).setX(repos.getObject(i).getX() + 10);
 				}
 			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void blackToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		col c(0, 0, 0);
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i))
+				if (repos.getObject(i).getSelected() == true)
+					repos.getObject(i).setColor(c);
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void redToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		col c(255, 0, 0);
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i))
+				if (repos.getObject(i).getSelected() == true)
+					repos.getObject(i).setColor(c);
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void greenToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		col c(0, 255, 0);
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i))
+				if (repos.getObject(i).getSelected() == true)
+					repos.getObject(i).setColor(c);
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+	}
+	private: System::Void blueToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		col c(0, 0, 255);
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i))
+				if (repos.getObject(i).getSelected() == true)
+					repos.getObject(i).setColor(c);
 		}
 		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
 	}

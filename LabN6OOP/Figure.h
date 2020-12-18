@@ -1,25 +1,40 @@
 #pragma once
 
+struct col {
+	int r;
+	int g;
+	int b;
+	col() {
+		r = 0;
+		g = 0;
+		b = 0;
+	}
+	col(int r, int g, int b) {
+		this->r = r;
+		this->g = g;
+		this->b = b;
+	}
+};
 
 class Figure {
 protected:
 	int x, y, R;
 	bool selected;
-	int color;
+	col color;
 public:
 	Figure() {
 		x = 0;
 		y = 0;
 		R = 0;
 		selected = true;
-		color = 0;
+		color = col();
 	}
 	Figure(int x, int y) {	// Конструктор
 		this->x = x;
 		this->y = y;
 		selected = true;
 		R = 0;
-		color = 0;
+		color = col();
 	}
 	Figure(const Figure& obj) {	// Конструктор копирования
 		this->x = obj.x;
@@ -47,10 +62,10 @@ public:
 	bool getSelected() {
 		return selected;
 	}
-	int getColor() {
+	col getColor() {
 		return color;
 	}
-	void setColor(int color) {
+	void setColor(col color) {
 		this->color = color;
 	}
 	int getR() {
