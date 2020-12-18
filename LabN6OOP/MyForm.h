@@ -12,8 +12,8 @@ namespace LabN6OOP {
 	using namespace System::Drawing;
 
 	Repository repos(10);	// Õğàíèëèùå îáúåêòîâ
-	const int D = 100;	// Äèàìåòğ êğóãà
-
+	int R = 50;	// Ğàçìåğ ôèãóğû
+	Figure* fig = 0;	// Ôèãóğà äëÿ ñîçäàíèÿ
 	/// <summary>
 	/// Ñâîäêà äëÿ MyForm
 	/// </summary>
@@ -40,6 +40,16 @@ namespace LabN6OOP {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñîçäàòüÔèãóğóToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ èíñòğóìåíòûToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ğàçìåğToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ öâåòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ïîëîæåíèåToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ êğóãToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ êâàäğàòToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ òğåóãîëüíèêToolStripMenuItem;
+
 	protected:
 
 	protected:
@@ -60,18 +70,99 @@ namespace LabN6OOP {
 		void InitializeComponent(void)
 		{
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->ñîçäàòüÔèãóğóToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->êğóãToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->êâàäğàòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->òğåóãîëüíèêToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->èíñòğóìåíòûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ğàçìåğToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->öâåòToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïîëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(12, 12);
+			this->pictureBox1->Location = System::Drawing::Point(12, 27);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(1240, 548);
+			this->pictureBox1->Size = System::Drawing::Size(1240, 642);
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Click);
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			this->pictureBox1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ñîçäàòüÔèãóğóToolStripMenuItem,
+					this->èíñòğóìåíòûToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(1264, 24);
+			this->menuStrip1->TabIndex = 1;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// ñîçäàòüÔèãóğóToolStripMenuItem
+			// 
+			this->ñîçäàòüÔèãóğóToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->êğóãToolStripMenuItem,
+					this->êâàäğàòToolStripMenuItem, this->òğåóãîëüíèêToolStripMenuItem
+			});
+			this->ñîçäàòüÔèãóğóToolStripMenuItem->Name = L"ñîçäàòüÔèãóğóToolStripMenuItem";
+			this->ñîçäàòüÔèãóğóToolStripMenuItem->Size = System::Drawing::Size(105, 20);
+			this->ñîçäàòüÔèãóğóToolStripMenuItem->Text = L"Ñîçäàòü ôèãóğó";
+			// 
+			// êğóãToolStripMenuItem
+			// 
+			this->êğóãToolStripMenuItem->Name = L"êğóãToolStripMenuItem";
+			this->êğóãToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->êğóãToolStripMenuItem->Text = L"Êğóã";
+			this->êğóãToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::êğóãToolStripMenuItem_Click);
+			// 
+			// êâàäğàòToolStripMenuItem
+			// 
+			this->êâàäğàòToolStripMenuItem->Name = L"êâàäğàòToolStripMenuItem";
+			this->êâàäğàòToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->êâàäğàòToolStripMenuItem->Text = L"Êâàäğàò";
+			this->êâàäğàòToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::êâàäğàòToolStripMenuItem_Click);
+			// 
+			// òğåóãîëüíèêToolStripMenuItem
+			// 
+			this->òğåóãîëüíèêToolStripMenuItem->Name = L"òğåóãîëüíèêToolStripMenuItem";
+			this->òğåóãîëüíèêToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->òğåóãîëüíèêToolStripMenuItem->Text = L"Òğåóãîëüíèê";
+			this->òğåóãîëüíèêToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::òğåóãîëüíèêToolStripMenuItem_Click);
+			// 
+			// èíñòğóìåíòûToolStripMenuItem
+			// 
+			this->èíñòğóìåíòûToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->ğàçìåğToolStripMenuItem,
+					this->öâåòToolStripMenuItem, this->ïîëîæåíèåToolStripMenuItem
+			});
+			this->èíñòğóìåíòûToolStripMenuItem->Name = L"èíñòğóìåíòûToolStripMenuItem";
+			this->èíñòğóìåíòûToolStripMenuItem->Size = System::Drawing::Size(73, 20);
+			this->èíñòğóìåíòûToolStripMenuItem->Text = L"Èçìåíèòü";
+			// 
+			// ğàçìåğToolStripMenuItem
+			// 
+			this->ğàçìåğToolStripMenuItem->Name = L"ğàçìåğToolStripMenuItem";
+			this->ğàçìåğToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->ğàçìåğToolStripMenuItem->Text = L"Ğàçìåğ";
+			// 
+			// öâåòToolStripMenuItem
+			// 
+			this->öâåòToolStripMenuItem->Name = L"öâåòToolStripMenuItem";
+			this->öâåòToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->öâåòToolStripMenuItem->Text = L"Öâåò";
+			// 
+			// ïîëîæåíèåToolStripMenuItem
+			// 
+			this->ïîëîæåíèåToolStripMenuItem->Name = L"ïîëîæåíèåToolStripMenuItem";
+			this->ïîëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(139, 22);
+			this->ïîëîæåíèåToolStripMenuItem->Text = L"Ïîëîæåíèå";
 			// 
 			// MyForm
 			// 
@@ -79,94 +170,67 @@ namespace LabN6OOP {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1264, 681);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->menuStrip1);
+			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
-			this->Click += gcnew System::EventHandler(this, &MyForm::MyForm_Click);
 			this->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::MyForm_Paint);
 			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MyForm::MyForm_KeyDown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: int GetDistance(int x0, int x, int y0, int y) {	// Âû÷èñëåíèå äèñòàíöèè ìåæäó òî÷êàìè
 		return (pow((x0 - x), 2) + pow((y0 - y), 2));
 	}
-	private: bool CheckIn(int x, int y, int R) {
+	private: bool CheckIn(int x, int y, int R) {	// Ïğîâåğêà âûõîäà çà ïîëå ğèñîâàíèÿ
 		return (x + R<(pictureBox1->Location.X + pictureBox1->Width) && x - R>pictureBox1->Location.X && y + R<(pictureBox1->Location.Y + pictureBox1->Height) && y - R>pictureBox1->Location.Y);
 	}
-	private: System::Void MyForm_Click(System::Object^ sender, System::EventArgs^ e) {	// Îáğàáîò÷èê íàæàòèÿ íà ôîğìó
-		int check = 0;
-		int x, y;
-		if ((Control::ModifierKeys == Keys::Control)) {	// Ïğîâåğêà íàæàòèÿ Ctrl
-			for (int i = 0; i < repos.getSize(); ++i) {
-				x = this->PointToClient(Cursor->Position).X;
-				y = this->PointToClient(Cursor->Position).Y;
-				if (!repos.isNull(i)) {
-					if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(D / 2, 2)) {
-						if (repos.getObject(i).getSelected() == false)
-							check = 1;
-					}
-				}
-				if (check > 0) break;
-			}
-			if (check != 0)
-				for (int i = 0; i < repos.getSize(); ++i) {
-					if (!repos.isNull(i)) {
-						if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(D / 2, 2)) {
-							repos.getObject(i).setSelected(true);
-						}
-					}
-				}
 
-		}
-		else {
-			for (int i = 0; i < repos.getSize(); ++i) {
-				if (!repos.isNull(i))
-					repos.getObject(i).setSelected(false);
-			}
-			for (int i = 0; i < repos.getSize(); ++i) {
-				x = this->PointToClient(Cursor->Position).X;
-				y = this->PointToClient(Cursor->Position).Y;
-				if (!repos.isNull(i)) {
-					if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(D / 2, 2)) {
-						check = 1;
-						repos.getObject(i).setSelected(true);
-					}
-				}
-			}
-			if (check == 0) {
-				if (CheckIn(x, y, D / 2))
-					repos.addObject(new CCircle(x, y, D / 2));
-			}
-		}
-		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
-	}
 	private: System::Void MyForm_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {	// Îòğèñîâêà ôîğìû
+
 		Pen^ pen = gcnew Pen(Color::Black);	// Êèñòü
-			Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Çàëèâêà
-			for (int i = 0; i < repos.getSize(); ++i) {
-				if (!repos.isNull(i)) {
-					if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
-						if (repos.getObject(i).getSelected() == false) {	// Ğèñóåì ıëåìåíò
-							e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
-						}
-						else {	// Çàëèâàåì ıëåìåíò
-
-							e->Graphics->FillEllipse(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
-						}
+		Brush^ brush = gcnew SolidBrush(Color::FromArgb(0, 0, 0));	// Çàëèâêà
+		for (int i = 0; i < repos.getSize(); ++i) {
+			if (!repos.isNull(i)) {
+				//pen->Color = Color::FromArgb(repos.getObject(i).getColor());
+				if (CCircle* c = dynamic_cast<CCircle*>(&repos.getObject(i))) {
+					if (repos.getObject(i).getSelected() == false) {	// Ğèñóåì ıëåìåíò
+						e->Graphics->DrawEllipse(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
 					}
-					else if (CSquare* c = dynamic_cast<CSquare*>(&repos.getObject(i))) {
+					else {	// Çàëèâàåì ıëåìåíò
 
+						e->Graphics->FillEllipse(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
 					}
-					else if (CTriangle* c = dynamic_cast<CTriangle*>(&repos.getObject(i))) {
-
+				}
+				else if (CSquare* c = dynamic_cast<CSquare*>(&repos.getObject(i))) {
+					if (repos.getObject(i).getSelected() == false) {	// Ğèñóåì ıëåìåíò
+						e->Graphics->DrawRectangle(pen, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
 					}
-					else if (CLine* c = dynamic_cast<CLine*>(&repos.getObject(i))) {
+					else {	// Çàëèâàåì ıëåìåíò
 
+						e->Graphics->FillRectangle(brush, c->getX() - c->getR(), c->getY() - c->getR(), c->getR() * 2, c->getR() * 2);
+					}
+
+				}
+				else if (CTriangle* c = dynamic_cast<CTriangle*>(&repos.getObject(i))) {
+					Point p1(c->getX(), c->getY() - c->getR());
+					Point p2(c->getX() - c->getR(), c->getY() + c->getR());
+					Point p3(c->getX() + c->getR(), c->getY() + c->getR());
+					array<Point>^ p = { p1,p2,p3 };
+					if (repos.getObject(i).getSelected() == false) {	// Ğèñóåì ıëåìåíò
+						e->Graphics->DrawPolygon(pen, p);
+					}
+					else {	// Çàëèâàåì ıëåìåíò
+						e->Graphics->FillPolygon(brush, p);
 					}
 				}
 			}
+		}
 		delete pen;
 		delete brush;
 	}
@@ -179,6 +243,87 @@ namespace LabN6OOP {
 			}
 			MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
 		}
+	}
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+		int check = 0;
+		int x, y;
+		if ((Control::ModifierKeys == Keys::Control)) {	// Ïğîâåğêà íàæàòèÿ Ctrl
+			x = this->PointToClient(Cursor->Position).X - pictureBox1->Location.X;
+			y = this->PointToClient(Cursor->Position).Y - pictureBox1->Location.Y;
+			for (int i = 0; i < repos.getSize(); ++i) {
+				if (!repos.isNull(i)) {
+					if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(repos.getObject(i).getR(), 2)) {
+						if (repos.getObject(i).getSelected() == false)
+							check = 1;
+					}
+				}
+				if (check > 0) break;
+			}
+			if (check != 0)
+				for (int i = 0; i < repos.getSize(); ++i) {
+					if (!repos.isNull(i)) {
+						if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(repos.getObject(i).getR(), 2)) {
+							repos.getObject(i).setSelected(true);
+						}
+					}
+				}
+
+		}
+		else {
+			for (int i = 0; i < repos.getSize(); ++i) {
+				if (!repos.isNull(i))
+					repos.getObject(i).setSelected(false);
+			}
+			x = this->PointToClient(Cursor->Position).X - pictureBox1->Location.X;
+			y = this->PointToClient(Cursor->Position).Y - pictureBox1->Location.Y;
+			for (int i = 0; i < repos.getSize(); ++i) {
+				if (!repos.isNull(i)) {
+					if (GetDistance(repos.getObject(i).getX(), x, repos.getObject(i).getY(), y) <= pow(repos.getObject(i).getR(), 2)) {
+						check = 1;
+						repos.getObject(i).setSelected(true);
+					}
+				}
+			}
+			if (check == 0) {
+
+				if (fig != 0) {
+					if (CCircle* c = dynamic_cast<CCircle*>(fig)) {
+						if (CheckIn(x, y, R)) {
+							repos.addObject(new CCircle(x, y, R));
+							delete fig;
+							fig = 0;
+						}
+					}
+					else if (CSquare* c = dynamic_cast<CSquare*>(fig)) {
+						if (CheckIn(x, y, R)) {
+							repos.addObject(new CSquare(x, y, R));
+							delete fig;
+							fig = 0;
+						}
+					}
+					else if (CTriangle* c = dynamic_cast<CTriangle*>(fig)) {
+						if (CheckIn(x, y, R)) {
+							repos.addObject(new CTriangle(x, y, R));
+							delete fig;
+							fig = 0;
+						}
+					}
+				}
+				
+			}
+		}
+		MyForm::Refresh();	// Îáíîâëåíèå ôîğìû
+
+
+	}
+	private: System::Void êğóãToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		fig = new CCircle();
+	}
+	private: System::Void êâàäğàòToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		fig = new CSquare();
+	}
+	private: System::Void òğåóãîëüíèêToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		fig = new CTriangle();
 	}
 	};
 }
